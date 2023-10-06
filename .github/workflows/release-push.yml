@@ -1,0 +1,14 @@
+name: Create Release
+on:
+  pull_request: 
+    types: [closed]
+jobs:
+  release-create:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Project checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - run: echo "${{ github.ref }}"
