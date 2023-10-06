@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+const { readFileSync, writeFileSync } = require("fs");
+const { join } = require("path");
+
+const version = argv[1].replace(/^v/, "");
+
+// Change package.json version indication
+const packageFile = join(__dirname, "..", "..", "package.json");
+const package = JSON.parse(readFileSync(packageFile));
+package.version = version;
+writeFileSync(packageFile, JSON.stringify(package, null, 2));
+
+
+// Change package-lock.json version indication
+const packageLockFile = join(__dirname, "..", "..", "package-lock.json");
+const packageLock = JSON.parse(readFileSync(packageLockFile));
+packageLock.version = version;
+writeFileSync(packageLockFile, JSON.stringify(packageLock, null, 2));
