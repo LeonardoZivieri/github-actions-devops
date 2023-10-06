@@ -1,0 +1,30 @@
+{
+  "name": "github-actions-devops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build src/index.js -o out",
+    "pretest": "mkdirp tests",
+    "test": "node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=spec --test-reporter-destination=tests/result --experimental-test-coverage src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonardoZivieri/github-actions-devops.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeonardoZivieri/github-actions-devops/issues"
+  },
+  "homepage": "https://github.com/LeonardoZivieri/github-actions-devops#readme",
+  "devDependencies": {
+    "@types/node": "^20.8.2"
+  },
+  "dependencies": {
+    "@vercel/ncc": "^0.38.0",
+    "fastify": "^4.23.2",
+    "mkdirp": "^3.0.1"
+  }
+}
